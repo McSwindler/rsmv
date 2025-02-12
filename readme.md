@@ -20,10 +20,8 @@ npm run web
 ## Running the viewer
 The web viewer needs a server since it uses several API's that aren't allowed on `file://`.
 ```sh
-#use a simple http localhost server
-npx http-server dist
-#alternatively run a webpack dev server with HMR
-npm run hot
+#use a simple http localhost server with proxy for character data
+npx http-server -P http://services.runescape.com dist
 ```
 Both of these options will host the app at http://localhost:8080/assets/index.html
 

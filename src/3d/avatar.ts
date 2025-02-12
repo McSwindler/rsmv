@@ -417,7 +417,7 @@ async function animGroupToAnims(engine: EngineCache, groupid: number) {
 export function appearanceUrl(name: string) {
 	if (typeof document != "undefined" && typeof document.location != "undefined" && (document.location.protocol.startsWith("http") || document.location.protocol == "about:")) {
 		//proxy through runeapps if we are running in a browser
-		return `https://runeapps.org/data/getplayeravatar.php?player=${encodeURIComponent(name)}`;
+		return `/m=avatar-rs/${encodeURIComponent(name)}/appearance.dat`;
 	} else {
 		return `https://secure.runescape.com/m=avatar-rs/${encodeURIComponent(name)}/appearance.dat`;
 	}
