@@ -365,6 +365,12 @@ export class RSModel extends TypedEmitter<{ loaded: undefined, animchanged: numb
 		const mount = this.loadAnimation(animid);
 		return this.mountAnim(mount.clip ?? await mount.prom);
 	}
+
+	async playPauseAnimation() {
+		if (!this.loaded) { throw new Error("attempting to toggle anim before model is loaded"); }
+		if (this.mountedanim == null) { return; }
+		this.mixer.timeScale = this.mixer.timeScale == 0 ? 1 : 0;
+	}
 }
 
 export class RSMapChunkGroup extends TypedEmitter<{ loaded: undefined, changed: undefined }> implements ThreeJsSceneElementSource {

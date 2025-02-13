@@ -939,6 +939,11 @@ function ScenePlayer(p: LookupModeProps) {
 					<IdInput onChange={v => { model?.setAnimation(v); forceUpdate() }} initialid={model?.targetAnimId ?? -1} />
 				</LabeledInput>
 			)}
+			{data && (
+				<LabeledInput label="Animation Control">
+					<input type="button" className="sub-btn" value="&#x23F5;&#x23F8;" title="Play or Pause the Animation" onClick={e => model?.playPauseAnimation()} />
+				</LabeledInput>
+			)}
 			{data && <label><input type="checkbox" checked={head} onChange={oncheck} />Head</label>}
 			<div className="mv-sidebar-scroll">
 				{data && <h2>Slots</h2>}
